@@ -1,3 +1,5 @@
+<!-- resources/views/blog.blade.php -->
 <x-layout>
-    <p class="text-xl">Welcome To My Blogger Wira Blog!</p>
+    <x-slot:title>Blog</x-slot:title>
+    <p class="text-xl">Selamat Datang di Blog Saya, Wira Sukma Saputra!</p>
 </x-layout>

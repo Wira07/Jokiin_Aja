@@ -1,3 +1,5 @@
+<!-- resources/views/home.blade.php -->
 <x-layout>
-    <p class="text-xl">Welcome To My Blogger Wira Sukma Saputra!</p>
+    <x-slot:title>Home</x-slot:title>
+    <p class="text-xl">Selamat Datang di Halaman Utama Saya, Wira Sukma Saputra!</p>
 </x-layout>
