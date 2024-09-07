@@ -8,20 +8,23 @@
             <p class="text-lg mt-4 text-gray-500 animate-slide-in-bottom">Temukan artikel menarik seputar dunia teknologi, pemrograman, dan lainnya.</p>
         </header>
 
-        @foreach([1, 2] as $article)
-        <article class="py-8 max-w-screen-md mx-auto border-b border-gray-300 animate-fade-in-up">
-            <h2 class="mb-3 text-4xl tracking-tight font-bold text-indigo-700 hover:text-indigo-500 transition duration-300 animate-slide-in-top">Judul Skripsi</h2>
+        @foreach($articles as $article)
+        <!-- Menambahkan ID untuk setiap artikel -->
+        <article id="article-{{ $article['id'] }}" class="py-8 max-w-screen-md mx-auto border-b border-gray-300 animate-fade-in-up">
+            <h2 class="mb-3 text-4xl tracking-tight font-bold text-indigo-700 hover:text-indigo-500 transition duration-300 animate-slide-in-top">{{ $article['title'] }}</h2>
 
             <div class="flex items-center space-x-2 text-base text-gray-500 mb-4 animate-fade-in-up">
-                <span>Wira Sukma Saputra</span>
+                <span>{{ $article['author'] }}</span>
                 <span>&bull;</span>
-                <span>10 January 2024</span>
+                <span>{{ $article['date'] }}</span>
             </div>
 
-            <p class="text-gray-700 leading-relaxed animate-fade-in-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laborum repellat ratione. Explicabo beatae modi vitae quaerat sapiente quo adipisci aliquid autem cum. Quidem eos consectetur ab deserunt sequi earum.</p>
+            <!-- Membatasi jumlah karakter konten dengan Str::limit() -->
+            <p class="text-gray-700 leading-relaxed animate-fade-in-up">{{ Str::limit($article['content'], 100, '...') }}</p>
 
             <div class="mt-6">
-                <a href="#" class="inline-block px-6 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-md transition duration-300 animate-bounce-in">Read More &raquo;</a>
+                <!-- <a href="{{ $article['link'] }}" class="inline-block px-6 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-md transition duration-300 animate-bounce-in">Read More &raquo;</a> -->
+                <a href="{{ route('blog.show', ['id' => $article['id']]) }}" class="inline-block px-6 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-md transition duration-300 animate-bounce-in">Read More &raquo;</a>
             </div>
         </article>
         @endforeach
