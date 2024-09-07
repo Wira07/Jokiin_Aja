@@ -20,14 +20,16 @@
             </div>
 
             <!-- Membatasi jumlah karakter konten dengan Str::limit() -->
-            <p class="text-gray-700 leading-relaxed animate-fade-in-up">{{ Str::limit($article['content'], 100, '...') }}</p>
+            <p class="text-gray-700 leading-relaxed animate-fade-in-up">{{ Str::limit($article['content'], 300, '...') }}</p>
 
             <div class="mt-6">
                 <!-- <a href="{{ $article['link'] }}" class="inline-block px-6 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-md transition duration-300 animate-bounce-in">Read More &raquo;</a> -->
                 <a href="{{ route('blog.show', ['id' => $article['id']]) }}" class="inline-block px-6 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-md transition duration-300 animate-bounce-in">Read More &raquo;</a>
+
             </div>
         </article>
         @endforeach
     </div>
 
 </x-layout>
+<!-- @php dd($article) @endphp -->
