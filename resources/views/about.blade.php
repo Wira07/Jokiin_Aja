@@ -1,9 +1,8 @@
-<!-- resources/views/home.blade.php -->
 <x-layout>
     <x-slot:title>Tentang</x-slot:title>
 
     <div class="max-w-4xl mx-auto mt-10">
-        <div class="bg-gradient-to-r from-blue-500 to-teal-400 text-white shadow-lg rounded-lg p-8">
+        <div class="bg-gradient-to-r from-blue-500 to-teal-400 text-white shadow-lg rounded-lg p-8 {{ request()->is('tentang') ? 'active' : '' }}">
             <h1 class="text-4xl font-extrabold mb-8 text-center animate-pulse">Selamat Datang di Dunia Saya!</h1>
             <div class="bg-white text-gray-800 rounded-lg shadow-inner p-8 transform transition-transform duration-500 hover:scale-105 animate-fade-in">
                 <p class="text-2xl text-center font-extrabold mb-4">
@@ -46,6 +45,11 @@
 
         .animate-fade-in {
             animation: fade-in 1s ease-out;
+        }
+
+        .active {
+            border: 2px solid white;
+            /* Contoh gaya untuk kelas aktif */
         }
     </style>
 </x-layout>
